@@ -28,6 +28,7 @@ class Movies extends Component {
             </ul>
         );
     }
-}
+};
 
 export default Movies;
+
