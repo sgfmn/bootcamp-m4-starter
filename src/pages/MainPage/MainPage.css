@@ -15,5 +15,10 @@
 }
 
 .main-page__favorites {
-    width: 35%;   
+    width: 35%;
 }
+
+
+/* @media only screen and (max-width: 768px) {
+    background-color: black;
+} */

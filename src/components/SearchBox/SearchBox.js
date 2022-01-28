@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
 import './SearchBox.css';
+import store from '../../redux/store';
+import { addMovies } from "../../redux/actions";
 
 class SearchBox extends Component {
     state = {
-        searchLine: ''
+        searchLine: '',
     }
     searchLineChangeHandler = (e) => {
         this.setState({ searchLine: e.target.value });
     }
     searchBoxSubmitHandler = (e) => {
         e.preventDefault();
+        const { searchLine } = this.state;
+        fetch(`http://www.omdbapi.com/?apikey=b41237ea&s=${searchLine}`)
+        .then(data => data.json())
+        .then(data => {
+            if(data.Response === 'True') {
+                store.dispatch(addMovies(data.Search));
+            } else {
+                alert('Ничего не найдено')
+            }
+        })
     }
+
     render() {
         const { searchLine } = this.state;
 
@@ -39,5 +52,5 @@ class SearchBox extends Component {
         );
     }
 }
- 
+
 export default SearchBox;

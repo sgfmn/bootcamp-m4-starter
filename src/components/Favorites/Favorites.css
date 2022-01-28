@@ -31,3 +31,20 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+
+.fav-el {
+    display: flex;
+}
+
+.btn-del {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3vh;
+    min-width: 10px;
+    height: 1.5vh;
+    min-height: 10px;
+    color: red;
+    margin-left: 5px;
+    font-size: 1vh;
+}
